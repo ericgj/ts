@@ -7,9 +7,9 @@ tsfile="${tsdir}/ts-data"
 
 
 function start {
-  mkdir -p "${tsdir}"
-
+  stop
   echo "$ts|$ts|$1|$2|0" > "${jfile}"
+  echo "You are starting $1 : $2"
 }
 
 
@@ -27,10 +27,7 @@ function stop {
     out=$(IFS='|'; echo "${PARTS[*]}")
     echo "$out"  >> "${tsfile}"
     echo "" > "${jfile}"
-    echo "Stopped ${PARTS[2]} : ${PARTS[3]}"
-  else
-    echo "No current task"
-    exit 1
+    echo "You have stopped ${PARTS[2]} : ${PARTS[3]}"
   fi
 }
 
