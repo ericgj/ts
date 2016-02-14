@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-ts=`date +%Y-%m-%dT%H:%M:%S`
+# ts=`date +%Y-%m-%dT%H:%M:%S`
+ts=`date +%s`
 tsdir="${HOME}/.ts"
 jfile="${tsdir}/.ts-data"
 tsfile="${tsdir}/ts-data"
@@ -27,7 +28,8 @@ function stop {
     out=$(IFS='|'; echo "${PARTS[*]}")
     echo "$out"  >> "${tsfile}"
     echo "" > "${jfile}"
-    echo "You have stopped ${PARTS[2]} : ${PARTS[3]}"
+    mins=$(date -d @$((${PARTS[1]}-${PARTS[0]})) +%_M)
+    echo "You spent ${mins} minutes on ${PARTS[2]} : ${PARTS[3]}"
   fi
 }
 
@@ -48,15 +50,15 @@ shift
 case $cmd in
   
   start)
-    start $*
+    start "$@"
     ;;
 
   stop)
-    stop $*
+    stop "$@"
     ;;
 
   log)
-    log $*
+    log "$@"
     ;;
 
 esac
