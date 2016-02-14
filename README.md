@@ -36,8 +36,8 @@ Yet another CLI timesheet app
 
 Timesheet records are added to `~/.ts/ts-data` as pipe (|) delimited fields:
 
-  - Start time
-  - Stop time
+  - Start time (Unix timestamp, i.e. seconds from epoch)
+  - Stop time (Unix timestamp)
   - Category (e.g. "Project ABC")
   - Description
   - Minutes adjustment (specified in `stop` or `log`).

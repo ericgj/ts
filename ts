@@ -29,7 +29,7 @@ function stop {
     echo "$out"  >> "${tsfile}"
     echo "" > "${jfile}"
     mins=$(date -d @$((${PARTS[1]}-${PARTS[0]})) +%_M)
-    echo "You spent ${mins} minutes on ${PARTS[2]} : ${PARTS[3]}"
+    echo "You spent $((mins+PARTS[4])) minutes on ${PARTS[2]} : ${PARTS[3]}"
   fi
 }
 
