@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+ts=`date +%Y-%m-%dT%H:%M:%S`
+jfile="$HOME/.ts-journal"
+
+echo "$ts|$ts|$1|$2|0" > "${jfile}"
+

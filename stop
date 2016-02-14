@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+ts=`date +%Y-%m-%dT%H:%M:%S`
+val=${2:-0}
+jfile="$HOME/.ts-journal"
+tsfile="$HOME/.ts"
+
+touch "${jfile}"
+
+IFS='|' read -ra PARTS < "${jfile}"
+if [ ! -z "${PARTS[1]}" ]; then
+  PARTS[1]="${ts}"
+  PARTS[3]="${1:-${PARTS[3]}}"
+  PARTS[4]=$((${val} + ${PARTS[4]}))
+  out=$(IFS='|'; echo "${PARTS[*]}")
+  echo "$out"  >> "${tsfile}"
+  echo "" > "${jfile}"
+else
+  echo "No current task"
+  exit 1
+fi
