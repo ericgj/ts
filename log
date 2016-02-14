@@ -2,7 +2,10 @@
 
 val=${3:-0}
 ts=`date +%Y-%m-%dT%H:%M:%S`
-tsfile="$HOME/.ts"
+tsdir="${HOME}/.ts"
+tsfile="${tsdir}/log"
+
+mkdir -p "${tsdir}"
 
 echo "$ts|$ts|$1|$2|$val" >> "${tsfile}"
 

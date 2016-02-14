@@ -1,3 +1,5 @@
 scratch
 *.pyc
 .env
+.journal
+log

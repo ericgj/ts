@@ -2,9 +2,11 @@
 
 ts=`date +%Y-%m-%dT%H:%M:%S`
 val=${2:-0}
-jfile="$HOME/.ts-journal"
-tsfile="$HOME/.ts"
+tsdir="${HOME}/.ts"
+jfile="${tsdir}/.journal"
+tsfile="${tsdir}/log"
 
+mkdir -p "${tsdir}"
 touch "${jfile}"
 
 IFS='|' read -ra PARTS < "${jfile}"
