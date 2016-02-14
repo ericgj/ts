@@ -1,5 +1,5 @@
 scratch
 *.pyc
 .env
-.journal
-log
+.ts-data
+ts-data

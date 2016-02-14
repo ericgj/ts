@@ -3,8 +3,8 @@
 ts=`date +%Y-%m-%dT%H:%M:%S`
 val=${2:-0}
 tsdir="${HOME}/.ts"
-jfile="${tsdir}/.journal"
-tsfile="${tsdir}/log"
+jfile="${tsdir}/.ts-data"
+tsfile="${tsdir}/ts-data"
 
 mkdir -p "${tsdir}"
 touch "${jfile}"

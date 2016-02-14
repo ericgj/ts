@@ -3,7 +3,7 @@
 val=${3:-0}
 ts=`date +%Y-%m-%dT%H:%M:%S`
 tsdir="${HOME}/.ts"
-tsfile="${tsdir}/log"
+tsfile="${tsdir}/ts-data"
 
 mkdir -p "${tsdir}"
 

@@ -2,7 +2,7 @@
 
 ts=`date +%Y-%m-%dT%H:%M:%S`
 tsdir="${HOME}/.ts"
-jfile="${tsdir}/.journal"
+jfile="${tsdir}/.ts-data"
 
 mkdir -p "${tsdir}"
 
