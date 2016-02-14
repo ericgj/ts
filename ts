@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 
+curdir="`dirname $0`"
 cmd="$1"
 shift
 
 case $cmd in
   
   start)
-    ./start $*
+    "${curdir}/start" $*
     ;;
 
   stop)
-    ./stop $*
+    "${curdir}/stop" $*
     ;;
 
   log)
-    ./log $*
+    "${curdir}/log" $*
     ;;
 
 esac
