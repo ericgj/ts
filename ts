@@ -13,9 +13,20 @@ function start {
   echo "You are starting $1 : $2"
 }
 
+function shifttask {
+  mkdir -p "${tsdir}"
+  touch "${jfile}"
+
+  IFS='|' read -ra ps < "${jfile}"
+
+  stop "$@"
+  if [ ! -z "${ps[1]}" ]; then
+    start "${ps[2]}" "${ps[3]}"
+  fi
+}
 
 function stop {
-  val=${2:-0}
+  val=${3:-0}
 
   mkdir -p "${tsdir}"
   touch "${jfile}"
@@ -23,7 +34,8 @@ function stop {
   IFS='|' read -ra PARTS < "${jfile}"
   if [ ! -z "${PARTS[1]}" ]; then
     PARTS[1]="${ts}"
-    PARTS[3]="${1:-${PARTS[3]}}"
+    PARTS[2]="${1:-${PARTS[2]}}"
+    PARTS[3]="${2:-${PARTS[3]}}"
     PARTS[4]=$((${val} + ${PARTS[4]}))
     out=$(IFS='|'; echo "${PARTS[*]}")
     echo "$out"  >> "${tsfile}"
@@ -54,7 +66,11 @@ case $cmd in
     ;;
 
   stop)
-    stop "$@"
+    stop "" "$@"
+    ;;
+
+  shift)
+    shifttask "$@"
     ;;
 
   log)
