@@ -45,6 +45,9 @@ function stop {
   fi
 }
 
+function cancel {
+  echo "" > "${jfile}"
+}
 
 function log {
   val=${3:-0}
@@ -75,6 +78,10 @@ case $cmd in
 
   log)
     log "$@"
+    ;;
+
+  cancel)
+    cancel
     ;;
 
 esac

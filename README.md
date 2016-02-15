@@ -21,6 +21,10 @@ Yet another CLI timesheet app
     # Log time already spent
     ts log "Project DEF" "Send data" 35
 
+    
+    # Cancel current task
+    ts cancel
+
 
     # Interrupt (shift) task currently working on
     ts shift Meeting "to resolve crisis"
