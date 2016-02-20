@@ -37,6 +37,18 @@ after starting the current task. So, the time is logged for the Meeting,
 minus 3 minutes. The current task is then restarted with 3 mins "credit".
 
 
+### List logged time
+    ts list
+
+#### or by category
+    ts list "Project ABC"
+
+Note:
+  - You can use regular expressions to filter the category.
+  - The listing is not formatted in any way. Typically you will want to pipe it
+    to a program that can do something useful with the data.
+
+
 ## Installation
 
     cd ~

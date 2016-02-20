@@ -63,6 +63,15 @@ function logtask {
   echo "$ts|$ts|$1|$2|$val" >> "${tsfile}"
 }
 
+function listtasks {
+  local expr="${1}"  # note arbitrary regexp
+
+  mkdir -p "${tsdir}"
+  touch "${jfile}"
+
+  grep "^[^|]*|[^|]*|${expr}[^|]*|" < "${tsfile}"
+}
+
 #-----------------------------------------------------------------------------
 
 cmd="$1"
@@ -88,6 +97,10 @@ case $cmd in
 
   cancel)
     canceltask
+    ;;
+
+  list)
+    listtasks "$@"
     ;;
 
 esac
