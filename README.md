@@ -4,37 +4,35 @@ Yet another CLI timesheet app
 
 ## Usage
 
-    # Start time
+### Start time
     ts start "Project ABC" "Revise specs"
 
   
-    # Stop time
+### Stop time
     ts stop
 
-    #   and change the description
+and change the description
     ts stop "Revise specs; ran into some questions, wrote back client"
 
-    #   and adjust the time (in minutes)
+and adjust the time (in minutes)
     ts stop "" -5
 
 
-    # Log time already spent
+### Log time already spent
     ts log "Project DEF" "Send data" 35
 
     
-    # Cancel current task
+### Cancel current task
     ts cancel
 
 
-    # Shift time from current to interrupting task,
-    # and restart time on current task
+### Shift time
     ts shift Meeting "to resolve crisis" 3
 
-    # Note: run this _after_ the interruption ends to split the time.
-    # In this example, we are saying the interrupting task (Meeting) started 3
-    # minutes after starting the current task. So, the time is logged for the 
-    # Meeting, minus 3 minutes. The current task is then restarted with 3 mins 
-    # "credit".
+Note: run this _after_ the interruption ends to split the time.  In this
+example, we are saying the interrupting task (Meeting) started 3 minutes
+after starting the current task. So, the time is logged for the Meeting,
+minus 3 minutes. The current task is then restarted with 3 mins "credit".
 
 
 ## Installation
