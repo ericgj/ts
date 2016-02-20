@@ -26,11 +26,15 @@ Yet another CLI timesheet app
     ts cancel
 
 
-    # Interrupt (shift) task currently working on
-    ts shift Meeting "to resolve crisis"
+    # Shift time from current to interrupting task,
+    # and restart time on current task
+    ts shift Meeting "to resolve crisis" 3
 
-    # Note: run this after the interruption ends to count the time towards the 
-    # shifted task, and then restart time on the prior task.
+    # Note: run this _after_ the interruption ends to split the time.
+    # In this example, we are saying the interrupting task (Meeting) started 3
+    # minutes after starting the current task. So, the time is logged for the 
+    # Meeting, minus 3 minutes. The current task is then restarted with 3 mins 
+    # "credit".
 
 
 ## Installation
