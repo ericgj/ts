@@ -11,11 +11,11 @@ Yet another CLI timesheet app
 ### Stop time
     ts stop
 
-- and change the description:
+#### and change the description:
 
     ts stop "Revise specs; ran into some questions, wrote back client"
 
-- and adjust the time (in minutes):
+#### and adjust the time (in minutes):
     
     ts stop "" -5
 
