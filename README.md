@@ -2,35 +2,33 @@
 
 Yet another CLI timesheet app
 
-## Usage
+## Logging time
 
-### Logging time
-
-#### Log time already spent
+### Log time already spent
     ts log "Project DEF" "Send data" 35
 
     
-#### Start time on task
+### Start time on task
     ts start "Project ABC" "Revise specs"
 
   
-#### Stop time on task
+### Stop time on task
     ts stop
 
-##### and change the description:
+#### and change the description:
 
     ts stop "Revise specs; ran into some questions, wrote back client"
 
-##### and adjust the time (in minutes):
+#### and adjust the time (in minutes):
     
     ts stop "" -5
 
 
-#### Cancel current timed task
+### Cancel current timed task
     ts cancel
 
 
-#### Shift time
+### Shift time
     ts shift Meeting "to resolve crisis" 3
 
 Note: run this _after_ the interruption ends to split the time.  In this
@@ -40,12 +38,12 @@ Meeting, minus 3 minutes. The current task is then restarted with 3 minutes
 "credit".
 
 
-#### Reporting time
+## Reporting time
 
-#### List all logged time
+### List all logged time
     ts list
 
-##### or by category
+#### or by category
     ts list "Project ABC"
 
 Note:
@@ -55,7 +53,7 @@ Note:
     `ts select` below.
 
 
-#### Run a query on logged time
+### Run a query on logged time
     ts select "Project DEF" some/query.sql
 
 Note: 
@@ -64,7 +62,7 @@ Note:
   - By default, the data is manipulated in-memory, but you can also persist 
     to an sqlite file by specifying an additional parameter:
 
-    ts select "" some/query.sql data.sqlite
+        ts select "" some/query.sql data.sqlite
 
   - There is an example query file in `reporters/summary.sql`.
 
@@ -94,6 +92,7 @@ While time is started on a task, a temporary record is saved to `.ts-data`
 Files are stored relative to wherever you install the script.
 
 If you want to save data somewhere else, feel free to edit `ts`.
+
 
 ## License
 
