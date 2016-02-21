@@ -15,13 +15,11 @@ Yet another CLI timesheet app
 ### Stop time on task
     ts stop
 
-#### and change the description:
+  - and change the description
+        ts stop "Revise specs; ran into some questions, wrote back client"
 
-    ts stop "Revise specs; ran into some questions, wrote back client"
-
-#### and adjust the time (in minutes):
-    
-    ts stop "" -5
+  - and adjust the time (in minutes)
+        ts stop "" -5
 
 
 ### Cancel current timed task
@@ -43,8 +41,8 @@ Meeting, minus 3 minutes. The current task is then restarted with 3 minutes
 ### List all logged time
     ts list
 
-#### or by category
-    ts list "Project ABC"
+  - or by category
+        ts list "Project ABC"
 
 Note:
   - You can use regular expressions to filter the category.
