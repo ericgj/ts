@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-# ts=`date +%Y-%m-%dT%H:%M:%S`
 ts=`date +%s`
-tsdir="${HOME}/.ts"
+thisdir="`dirname $0`"
+tsdir="${thisdir}"
 jfile="${tsdir}/.ts-data"
 tsfile="${tsdir}/ts-data"
-
+rptdir="${tsdir}/reporters"
+sqlcmd="python ${rptdir}/tosql.py"
 
 function starttask {
   stoptask
@@ -72,6 +73,7 @@ function listtasks {
   grep "^[^|]*|[^|]*|${expr}[^|]*|" < "${tsfile}"
 }
 
+
 #-----------------------------------------------------------------------------
 
 cmd="$1"
@@ -101,6 +103,10 @@ case $cmd in
 
   list)
     listtasks "$@"
+    ;;
+
+  select)
+    listtasks "${1}" | ${sqlcmd} ${2} | sqlite3 ${3:-:memory:}
     ;;
 
 esac
