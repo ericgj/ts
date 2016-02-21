@@ -16,9 +16,11 @@ Yet another CLI timesheet app
     ts stop
 
   - and change the description
+
         ts stop "Revise specs; ran into some questions, wrote back client"
 
   - and adjust the time (in minutes)
+        
         ts stop "" -5
 
 
@@ -42,6 +44,7 @@ Meeting, minus 3 minutes. The current task is then restarted with 3 minutes
     ts list
 
   - or by category
+        
         ts list "Project ABC"
 
 Note:
