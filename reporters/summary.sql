@@ -29,6 +29,6 @@ SELECT byall.category, byall.time as time_all, byweek.time as time_week, bytoday
 FROM byall LEFT OUTER JOIN (
   byweek LEFT OUTER JOIN bytoday ON byweek.category = bytoday.category
 ) ON byall.category = byweek.category
-ORDER BY byall.tot_mins DESC;
+ORDER BY bytoday.tot_mins DESC, byweek.tot_mins DESC, byall.tot_mins DESC;
 
 
