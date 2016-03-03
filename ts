@@ -24,7 +24,7 @@ function shifttask {
 
   IFS='|' read -ra orig < "${jfile}"
   
-  if [ ! -z "${orig[1]}" ]; then
+  if [[ ! -z "${orig[1]}" ]]; then
     stoptask  "${1}"        "${2}"        $((0-val))
     logtask   "${orig[2]}" "${orig[3]}"   $((val))
     starttask "${orig[2]}" "${orig[3]}"
@@ -39,7 +39,7 @@ function stoptask {
   touch "${jfile}"
 
   IFS='|' read -ra parts < "${jfile}"
-  if [ ! -z "${parts[1]}" ]; then
+  if [[ ! -z "${parts[1]}" ]]; then
     parts[1]="${ts}"
     parts[2]="${1:-${parts[2]}}"
     parts[3]="${2:-${parts[3]}}"
@@ -51,6 +51,22 @@ function stoptask {
     echo "You spent ${mins} minutes on ${parts[2]} : ${parts[3]}"
   fi
 }
+
+function checktask {
+  local parts
+
+  mkdir -p "${tsdir}"
+  touch "${jfile}"
+
+  IFS='|' read -ra parts < "${jfile}"
+  if [[ -z "${parts[1]}" ]]; then
+    echo "No current task"
+  else
+    local mins=$(( ((${ts}-${parts[0]})/60) + parts[4] ))
+    echo "You have spent ${mins} minutes on ${parts[2]} : ${parts[3]}"
+  fi
+}
+
 
 function canceltask {
   echo "" > "${jfile}"
@@ -95,6 +111,10 @@ case $cmd in
 
   log)
     logtask "$@"
+    ;;
+
+  check)
+    checktask
     ;;
 
   cancel)

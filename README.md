@@ -23,6 +23,8 @@ Yet another CLI timesheet app
         
         ts stop "" -5
 
+### Check time on current timed task
+    ts check
 
 ### Cancel current timed task
     ts cancel
